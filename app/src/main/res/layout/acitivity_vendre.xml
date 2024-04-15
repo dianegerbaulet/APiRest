@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <TextView
+        android:id="@+id/textTitre"
+        android:layout_width="355dp"
+        android:layout_height="37dp"
+        android:fontFamily="@font/varela_round"
+        android:text="Ajouter une annonce"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="88dp" />
+
+
+    <Button
+        android:id="@+id/btnAjouterPhoto"
+        android:layout_width="223dp"
+        android:layout_height="79dp"
+        android:backgroundTint="#2FAF92"
+        android:fontFamily="@font/varela_round"
+        android:onClick="ajouterPhoto"
+        android:text="Ajouter une photo"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="94dp"
+        tools:layout_editor_absoluteY="138dp" />
+
+    <LinearLayout
+        android:layout_width="414dp"
+        android:layout_height="69dp"
+        android:background="@drawable/gradient_background"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="-2dp"
+        tools:layout_editor_absoluteY="-2dp" />
+
+    <TextView
+        android:id="@+id/textName"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/varela_round"
+        android:gravity="start|center_vertical"
+        android:text="VroumFinder"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="80dp"
+        tools:layout_editor_absoluteY="17dp" />
+
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="57dp"
+        android:background="@drawable/gradient_background"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="673dp">
+
+        <Button
+            android:id="@+id/buttonAcheter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/button_selector"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="Acheter"
+            android:textColor="@drawable/button_selector"
+            android:textSize="16sp" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/buttonContactVendeur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/button_selector"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="Vendre"
+            android:textColor="@drawable/button_selector"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="355dp"
+        android:layout_height="37dp"
+        android:fontFamily="@font/varela_round"
+        android:text="Informations Principales"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="249dp" />
+
+    <ScrollView
+        android:layout_width="358dp"
+        android:layout_height="188dp"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="286dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/varela_round"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/divider11"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="?android:attr/listDivider" />
+
+            <Spinner
+                android:id="@+id/spinner3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/marques_array" />
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <Spinner
+                android:id="@+id/spinner4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/modeles_array" />
+
+            <View
+                android:id="@+id/divider12"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <Spinner
+                android:id="@+id/spinner5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/prix_array" />
+
+            <View
+                android:id="@+id/divider13"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <Spinner
+                android:id="@+id/spinner6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/kilométrage_array" />
+
+            <View
+                android:id="@+id/divider14"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <Spinner
+                android:id="@+id/spinner7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/annee_array" />
+
+            <View
+                android:id="@+id/divider15"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <Spinner
+                android:id="@+id/spinner8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/autonomie_array" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="357dp"
+        android:layout_height="150dp"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="509dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/divider16"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="?android:attr/listDivider" />
+
+            <Spinner
+                android:id="@+id/spinner10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/puissance_array" />
+
+            <View
+                android:id="@+id/divider17"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <Spinner
+                android:id="@+id/spinner11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/couleur_array" />
+
+            <View
+                android:id="@+id/divider18"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <Spinner
+                android:id="@+id/spinner12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/nbre_places_array" />
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="359dp"
+        android:layout_height="35dp"
+        android:fontFamily="@font/varela_round"
+        android:text="Caractéristiques Techniques"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="474dp" />
+
+</ScrollView>
+    </LinearLayout>
+    </ScrollView>
+    </ScrollView>
+    <![CDATA[
+
+    >
+
+
+]]>
+    </LinearLayout>
+    </LinearLayout>
+
+
+
+
+
+
+
+    </RelativeLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

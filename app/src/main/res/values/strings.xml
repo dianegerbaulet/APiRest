@@ -1,0 +1,90 @@
+<resources>
+    <string name="app_name">APiRest</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string-array name="marques_array">
+        <item>BMW</item>
+        <item>Citroen</item>
+        <item>Dacia</item>
+        <item>Fiat</item>
+        <item>Hyundai</item>
+        <item>Kia</item>
+        <item>MG</item>
+        <item>Nissan</item>
+        <item>Opel</item>
+        <item>Renault</item>
+    </string-array>
+
+    <string-array name="modeles_array">
+        <item>I3 phase 2</item>
+        <item>Ami</item>
+        <item>Spring</item>
+        <item>500 III e118</item>
+        <item>Kona 2</item>
+        <item>Soul II</item>
+        <item>4 Comfort</item>
+        <item>Leaf II</item>
+        <item>Corsa VI</item>
+        <item>Twingo III phase 2</item>
+        <item>Zoe</item>
+    </string-array>
+
+    <string-array name="prix_array">
+        <item>Entre 0€ et 5 000€</item>
+        <item>Entre 5 001€ et 10 000€</item>
+        <item>Entre 10 001€ et 15 000€</item>
+        <item>Entre 15 001€ et 20 000€</item>
+        <item>Entre 20 001€ et 25 000€</item>
+        <item>Plus de 25 001€</item>
+    </string-array>
+
+    <string-array name="kilométrage_array">
+        <item>Entre 0kms et 20 000kms</item>
+        <item>Entre 20 001kms et 40 000kms</item>
+        <item>Entre 40 001kms et 60 000kms</item>
+        <item>Entre 60 001kms et 80 000kms</item>
+        <item>Plus de 80 001kms</item>
+        <item>Citroen</item>
+    </string-array>
+
+    <string-array name="annee_array">
+        <item>2016</item>
+        <item>2017</item>
+        <item>2018</item>
+        <item>2019</item>
+        <item>2020</item>
+        <item>2021</item>
+        <item>2022</item>
+        <item>2023</item>
+    </string-array>
+
+    <string-array name="autonomie_array">
+        <item>Entre 0kms et 100kms</item>
+        <item>Entre 101kms et 200kms</item>
+        <item>Entre 201kms et 300kms</item>
+        <item>Plus de 301kms</item>
+    </string-array>
+
+
+    <string-array name="puissance_array">
+        <item>Blanc</item>
+        <item>Gris</item>
+        <item>Noir</item>
+    </string-array>
+
+    <string-array name="couleur_array">
+        <item>Blanc</item>
+        <item>Gris</item>
+        <item>Noir</item>
+    </string-array>
+
+    <string-array name="nbre_places_array">
+        <item>2</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+</resources>
