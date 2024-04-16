@@ -14,12 +14,12 @@ public class MesVoitures {
 
     public MesVoitures(JSONObject jObject) {
         this.id =jObject.optInt("id");
-        this.marque = jObject.optString("marque");
-        this.modele = jObject.optString("modele");
-        this.annee = jObject.optString("annee");
-        this.prix = jObject.optString("prix");
-        this.kilometrage = jObject.optString("kilometrage");
-        this.autonomie = jObject.optString("autonomie");
+        this.marque = jObject.optString("Marque");
+        this.modele = jObject.optString("Modele");
+        this.annee = jObject.optString("Annee");
+        this.prix = jObject.optString("Prix");
+        this.kilometrage = jObject.optString("Kilometrage");
+        this.autonomie = jObject.optString("Autonomie");
     }
 
     public int getId() { return id; }

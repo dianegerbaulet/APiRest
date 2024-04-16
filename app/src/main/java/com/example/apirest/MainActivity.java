@@ -21,7 +21,6 @@ import java.util.concurrent.ExecutionException;
 
 
 public class MainActivity extends AppCompatActivity {
-    private String UsrEmail = GlobalVariable.UsrEmail;
     private EditText userEmail;
     private EditText userPassword;
     private Button buttonLogin;
@@ -37,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
         buttonLogin = (Button)findViewById(R.id.button_connexion);
         buttonRegister = (Button)findViewById(R.id.button_register);
 
-        userEmail.setText("");
-        userPassword.setText("");
+        userEmail.setText("maximilien.canale@esme.fr");
+        userPassword.setText("CarMax9702!");
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,28 +48,18 @@ public class MainActivity extends AppCompatActivity {
                     jAuth.put("password", userPassword.getText().toString());
                     jAuth.put("app", "MNA");
 
-                    Log.v("LoginActivity", userEmail.getText().toString()+" "+userPassword.getText().toString());
-                    setUsrEmail(userEmail.getText().toString());
+                   Log.v("LoginActivity", userEmail.getText().toString()+" "+userPassword.getText().toString());
                     ConnectionRest connectionRest = new ConnectionRest();
                     connectionRest.setObj(jAuth);
                     connectionRest.setAction("auth");
                     connectionRest.execute("POST");
                     String token = connectionRest.get();
                     Param.getInstance().setToken(token);
+
                     if(token.charAt(0)=='{') {
-                        Log.v("LoginActivity", token);
+                        Log.v("token", token);
                     }else{
                         Param.getInstance().setToken(token);
-                        String []tabToken = token.split("\\.");
-                        String jsonToken = "";
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                            jsonToken = new String(Base64.getDecoder().decode(tabToken[1].getBytes()));
-                        }
-
-                        Log.v("TOKEN",jsonToken+" "+tabToken[1]);
-                        JSONObject payload = new JSONObject(jsonToken);
-                        Param.getInstance().setNameUser(payload.getString("name"));
-                        Param.getInstance().setIdUser(payload.getInt("usr"));
                         Intent intent = new Intent(MainActivity.this, WelcomePage.class);
                         startActivity(intent);
                     }
