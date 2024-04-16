@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFEFE">
+    android:background="#FFFEFE"
+    tools:context=".CitroenAmi">
 
     <TextView
         android:id="@+id/textPrix"
@@ -15,8 +16,13 @@
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="5dp"
-        tools:layout_editor_absoluteY="121dp" />
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout10"
+        app:layout_constraintVertical_bias="0.113" />
+
 
     <TextView
         android:id="@+id/textTitre"
@@ -27,47 +33,61 @@
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="88dp" />
-
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout10"
+        app:layout_constraintVertical_bias="0.056" />
 
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="319dp"
         android:layout_height="222dp"
-        app:srcCompat="@drawable/citroen_ami"
-        tools:layout_editor_absoluteX="46dp"
-        tools:layout_editor_absoluteY="180dp" />
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout10"
+        app:layout_constraintVertical_bias="0.29"
+        app:srcCompat="@drawable/citroen_ami" />
 
     <LinearLayout
+        android:id="@+id/linearLayout10"
         android:layout_width="414dp"
         android:layout_height="69dp"
         android:background="@drawable/gradient_background"
         android:orientation="horizontal"
         tools:layout_editor_absoluteX="-2dp"
-        tools:layout_editor_absoluteY="-2dp" />
+        tools:layout_editor_absoluteY="-2dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textName"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/varela_round"
-        android:gravity="start|center_vertical"
         android:text="VroumFinder"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="17dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
+        android:id="@+id/linearLayout9"
         android:layout_width="409dp"
         android:layout_height="57dp"
         android:background="@drawable/gradient_background"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="673dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout10"
+        app:layout_constraintVertical_bias="0.995">
 
         <ImageView
             android:id="@+id/imageView3"
@@ -108,14 +128,23 @@
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="428dp" />
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout10"
+        app:layout_constraintVertical_bias="0.615" />
 
     <ScrollView
+        android:id="@+id/scrollView7"
         android:layout_width="359dp"
         android:layout_height="193dp"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="465dp">
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout10"
+        app:layout_constraintVertical_bias="0.956">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -281,16 +310,20 @@
         </LinearLayout>
 
 
-    </LinearLayout>
+    </ScrollView>
 
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/btn_star"
-        tools:layout_editor_absoluteX="348dp"
-        tools:layout_editor_absoluteY="81dp" />
+        android:layout_marginTop="14dp"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.963"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout10"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@android:drawable/btn_star" />
 
 
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

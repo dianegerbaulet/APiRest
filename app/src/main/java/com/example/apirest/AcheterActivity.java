@@ -90,6 +90,10 @@ public class AcheterActivity extends AppCompatActivity {
                 if (selectedValue1.equals("BMW") && selectedValue2.equals("I3 phase 2") && selectedValue3.equals("Entre 15 001€ et 20 000€") && selectedValue4.equals("Entre 60 001kms et 80 000kms") && selectedValue5.equals("2018") && selectedValue6.equals("Entre 201kms et 300kms")){
                     Intent intent = new Intent(AcheterActivity.this, BMWI3.class);
                     startActivity(intent);
+                } else if (selectedValue1.equals("Citroen") && selectedValue2.equals("Ami") && selectedValue3.equals("Entre 5 001€ et 10 000€") && selectedValue4.equals("Entre 0kms et 20 000kms") && selectedValue5.equals("2021") && selectedValue6.equals("Entre 0kms et 100kms")){
+                        Intent intent = new Intent(AcheterActivity.this, CitroenAmi.class);
+                        startActivity(intent);
+
                 } else {
                     // Si "BMW" n'est pas sélectionné dans le Spinner
                     Toast.makeText(getApplicationContext(), "BMW n'est pas sélectionné dans le Spinner.", Toast.LENGTH_SHORT).show();

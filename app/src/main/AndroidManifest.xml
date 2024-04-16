@@ -42,6 +42,9 @@
         <activity
             android:name=".BMWI3"
             android:exported="false" />
+        <activity
+            android:name=".CitroenAmi"
+            android:exported="false" />
 
 
     </application>
