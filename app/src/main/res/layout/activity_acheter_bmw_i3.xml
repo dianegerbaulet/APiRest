@@ -92,22 +92,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-        <Button
-            android:id="@+id/buttonContactVendeur"
-            android:layout_width="261dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="12dp"
-            android:background="@drawable/button_selector"
-            android:fontFamily="@font/varela_round"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:text="Contacter le Vendeur"
-            android:textAlignment="center"
-            android:textColor="@drawable/button_selector"
-            android:textSize="16sp" />
-
         <Space
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -332,6 +316,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.951"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout6"
+        app:layout_constraintVertical_bias="0.131" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#2faf92"
+        android:fontFamily="@font/varela_round"
+        android:text="Retour"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/linearLayout6"
         app:layout_constraintVertical_bias="0.131" />

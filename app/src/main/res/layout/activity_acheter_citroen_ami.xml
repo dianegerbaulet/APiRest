@@ -81,13 +81,14 @@
         android:layout_width="409dp"
         android:layout_height="57dp"
         android:background="@drawable/gradient_background"
+        android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/linearLayout10"
-        app:layout_constraintVertical_bias="0.995">
+        app:layout_constraintVertical_bias="1.0">
 
         <ImageView
             android:id="@+id/imageView3"
@@ -95,21 +96,15 @@
             android:layout_height="47dp"
             app:srcCompat="@android:drawable/stat_sys_phone_call" />
 
-        <Button
-            android:id="@+id/buttonContactVendeur"
-            android:layout_width="261dp"
+        <Space
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="12dp"
-            android:background="@drawable/button_selector"
-            android:fontFamily="@font/varela_round"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:text="Contacter le Vendeur"
-            android:textAlignment="center"
-            android:textColor="@drawable/button_selector"
-            android:textSize="16sp" />
+            android:layout_weight="1" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
 
         <ImageView
             android:id="@+id/imageView4"
@@ -323,6 +318,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/linearLayout10"
         app:layout_constraintVertical_bias="0.135" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="94dp"
+        android:layout_height="49dp"
+        android:backgroundTint="#2faf92"
+        android:text="Retour"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.053"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.134" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
