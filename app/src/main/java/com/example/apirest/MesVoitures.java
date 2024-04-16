@@ -11,15 +11,21 @@ public class MesVoitures {
     private final String prix;
     private final String kilometrage;
     private final String autonomie;
+    private final String puissance;
+    private final String couleur;
+    private final String nbreplaces;
 
     public MesVoitures(JSONObject jObject) {
         this.id =jObject.optInt("id");
         this.marque = jObject.optString("Marque");
-        this.modele = jObject.optString("Modele");
-        this.annee = jObject.optString("Annee");
+        this.modele = jObject.optString("Modèle");
+        this.annee = jObject.optString("Année");
         this.prix = jObject.optString("Prix");
-        this.kilometrage = jObject.optString("Kilometrage");
+        this.kilometrage = jObject.optString("Kilométrage");
         this.autonomie = jObject.optString("Autonomie");
+        this.puissance = jObject.optString("Puissance");
+        this.couleur = jObject.optString("Couleur");
+        this.nbreplaces = jObject.optString("NbrePlaces");
     }
 
     public int getId() { return id; }
@@ -29,5 +35,8 @@ public class MesVoitures {
     public String getPrix() { return prix; }
     public String getKilometrage() { return kilometrage; }
     public String getAutonomie() { return autonomie; }
+    public String getPuissance() { return puissance; }
+    public String getCouleur() { return couleur; }
+    public String getNbreplaces() { return nbreplaces; }
 }
 

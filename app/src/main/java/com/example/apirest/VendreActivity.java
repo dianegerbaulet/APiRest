@@ -14,7 +14,7 @@ import org.json.JSONObject;
 
 public class VendreActivity extends AppCompatActivity {
 
-    private EditText Marque, Modele,  Annee,  Prix,  Kilometrage,  Autonomie;
+    private EditText Marque, Modele,  Annee,  Prix,  Kilometrage,  Autonomie, Puissance, Couleur, NbrePlaces;
     private Button buttonPublier;
     private Button buttonAjouterPhotos;
     private Button buttonAcheter;
@@ -32,6 +32,9 @@ public class VendreActivity extends AppCompatActivity {
         Prix = findViewById(R.id.editPrix);
         Kilometrage = findViewById(R.id.editkms);
         Autonomie = findViewById(R.id.editAutonomie);
+        Puissance = findViewById(R.id.editPuissance);
+        Couleur = findViewById(R.id.editCouleur);
+        NbrePlaces = findViewById(R.id.editNbrePlaces);
 
         buttonAjouterPhotos = (Button) findViewById(R.id.buttonRetour);
         buttonPublier = (Button) findViewById(R.id.buttonPublier);
@@ -61,12 +64,15 @@ public class VendreActivity extends AppCompatActivity {
                     try {
                         ConnectionRest connectionRest = new ConnectionRest();
                         JSONObject product = new JSONObject();
-                        product.put("marque", Marque.getText().toString());
-                        product.put("modele", Modele.getText().toString());
-                        product.put("annee", Annee.getText().toString());
-                        product.put("prix", Prix.getText().toString());
-                        product.put("kilometrage", Kilometrage.getText().toString());
-                        product.put("autonomie", Autonomie.getText().toString());
+                        product.put("Marque", Marque.getText().toString());
+                        product.put("Modèle", Modele.getText().toString());
+                        product.put("Année", Annee.getText().toString());
+                        product.put("Prix", Prix.getText().toString());
+                        product.put("Kilométrage", Kilometrage.getText().toString());
+                        product.put("Autonomie", Autonomie.getText().toString());
+                        product.put("Puissance", Puissance.getText().toString());
+                        product.put("Couleur", Couleur.getText().toString());
+                        product.put("NbrePlaces", NbrePlaces.getText().toString());
                         connectionRest.setObj(product);
 
                         connectionRest.execute("POST");

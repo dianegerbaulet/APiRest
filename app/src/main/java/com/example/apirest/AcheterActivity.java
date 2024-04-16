@@ -6,24 +6,14 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 
 public class AcheterActivity extends AppCompatActivity {
-    private Button searchButton;
-    private Button buttonFavoris;
-    private Button buttonAcheter;
-    private Button buttonVendre;
-    private Spinner spinnerMarque;
-    private Spinner spinnerModele;
-    private Spinner spinnerPrix;
-    private Spinner spinnerKilometrage;
-    private Spinner spinnerAnnee;
-    private Spinner spinnerAutonomie;
-    private Spinner spinnerPuissance;
+    private Button searchButton, buttonFavoris, buttonAcheter, buttonVendre, buttonNouvelleRecherche;
+    private Spinner spinnerMarque,  spinnerModele, spinnerPrix, spinnerKilometrage, spinnerAnnee, spinnerAutonomie, spinnerPuissance;
     private Spinner spinnerCouleur;
     private Spinner spinnerNbrePlaces;
 
@@ -33,6 +23,7 @@ public class AcheterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_acheter);
         searchButton = (Button) findViewById(R.id.buttonRechercher);
         buttonFavoris = (Button) findViewById(R.id.buttonFavoris);
+        buttonNouvelleRecherche = (Button) findViewById(R.id.buttonNouvelleRecherche);
 
         buttonAcheter = (Button) findViewById(R.id.buttonAcheter);
         buttonVendre = (Button) findViewById(R.id.buttonVendre);
@@ -41,6 +32,14 @@ public class AcheterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AcheterActivity.this, WelcomePage.class);
+                startActivity(intent);
+            }
+        });
+
+        buttonNouvelleRecherche.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AcheterActivity.this, AcheterActivity.class);
                 startActivity(intent);
             }
         });
@@ -73,30 +72,62 @@ public class AcheterActivity extends AppCompatActivity {
         Spinner spinnerNbrePlaces = findViewById(R.id.Nombre_de_places);
 
 
-        String selectedValue1 = spinnerMarque.getSelectedItem().toString();
-        String selectedValue2 = spinnerModele.getSelectedItem().toString();
-        String selectedValue3 = spinnerPrix.getSelectedItem().toString();
-        String selectedValue4 = spinnerKilometrage.getSelectedItem().toString();
-        String selectedValue5 = spinnerAnnee.getSelectedItem().toString();
-        String selectedValue6 = spinnerAutonomie.getSelectedItem().toString();
-        String selectedValue7 = spinnerPuissance.getSelectedItem().toString();
-        String selectedValue8 = spinnerCouleur.getSelectedItem().toString();
-        String selectedValue9 = spinnerNbrePlaces.getSelectedItem().toString();
-
 
         searchButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                if (selectedValue1.equals("") || selectedValue2.equals("") || selectedValue3.equals("") || selectedValue4.equals("") || selectedValue5.equals("") || selectedValue6.equals("") || selectedValue7.equals("") || selectedValue8.equals("") || selectedValue9.equals("")) {
-                    Toast.makeText(AcheterActivity.this, "Veuillez sélectionner une valeur dans chaque spinner", Toast.LENGTH_SHORT).show();
-                } else if (selectedValue1.equals("BMW") || selectedValue2.equals("I3 phase 2") || selectedValue3.equals("Entre 15 001€ et 20 000€") || selectedValue4.equals("Entre 60 001kms et 80 000kms") || selectedValue5.equals("2018") || selectedValue6.equals("Entre 201kms et 300kms") || selectedValue7.equals("3 CV") || selectedValue8.equals("Bleu") || selectedValue9.equals("4")) {
-                    Intent intent = new Intent(AcheterActivity.this, FavorisActivity.class);
+                String selectedValue1 = spinnerMarque.getSelectedItem().toString();
+                String selectedValue2 = spinnerModele.getSelectedItem().toString();
+                String selectedValue3 = spinnerPrix.getSelectedItem().toString();
+                String selectedValue4 = spinnerKilometrage.getSelectedItem().toString();
+                String selectedValue5 = spinnerAnnee.getSelectedItem().toString();
+                String selectedValue6 = spinnerAutonomie.getSelectedItem().toString();
+                String selectedValue7 = spinnerPuissance.getSelectedItem().toString();
+                String selectedValue8 = spinnerCouleur.getSelectedItem().toString();
+                String selectedValue9 = spinnerNbrePlaces.getSelectedItem().toString();
+
+                if (selectedValue1.equals("BMW") && selectedValue2.equals("I3 phase 2") && selectedValue3.equals("Entre 15 001€ et 20 000€") && selectedValue4.equals("Entre 60 001kms et 80 000kms") && selectedValue5.equals("2018") && selectedValue6.equals("Entre 201kms et 300kms")){
+                    Intent intent = new Intent(AcheterActivity.this, BMWI3.class);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(AcheterActivity.this, "Ces caractéristiques ne correspondent à aucun véhicule de notre base de données", Toast.LENGTH_SHORT).show();
+                    // Si "BMW" n'est pas sélectionné dans le Spinner
+                    Toast.makeText(getApplicationContext(), "BMW n'est pas sélectionné dans le Spinner.", Toast.LENGTH_SHORT).show();
                 }
+
             }
+
         });
+
+/* Ci dessous l'idée à explorer afin de récupérer les données de la Base de données
+
+        searchButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                try {
+                    ConnectionRest connectionRest = new ConnectionRest();
+                    JSONObject product = new JSONObject();
+                    product.get("Marque");
+                    product.get("Modèle");
+                    product.get("Année");
+                    product.get("Prix");
+                    product.get("Kilométrage");
+                    product.get("Autonomie");
+                    product.get("Puissance");
+                    product.get("Couleur");
+                    product.get("NbrePlaces");
+                    connectionRest.setObj(product);
+                    connectionRest.execute("POST");
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+                Intent intent = new Intent(AcheterActivity.this, WelcomePage.class);
+                startActivity(intent);
+            }
+             */
+
+
 
     }
 }
