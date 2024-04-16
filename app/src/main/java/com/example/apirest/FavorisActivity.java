@@ -16,7 +16,7 @@ public class FavorisActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favoris);
-        buttonRetour = (Button) findViewById(R.id.buttonRetour);
+        buttonRetour = (Button) findViewById(R.id.buttonphotos);
 
         buttonRetour.setOnClickListener(new View.OnClickListener() {
             @Override

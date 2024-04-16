@@ -1,25 +1,35 @@
 
 package com.example.apirest;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.net.Uri;
+import androidx.annotation.Nullable;
+
+
 public class VendreActivity extends AppCompatActivity {
 
-    private EditText Marque, Modele,  Annee,  Prix,  Kilometrage,  Autonomie, Puissance, Couleur, NbrePlaces;
+    private EditText Marque, Modele, Annee, Prix, Kilometrage, Autonomie, Puissance, Couleur, NbrePlaces;
     private Button buttonPublier;
     private Button buttonAjouterPhotos;
     private Button buttonAcheter;
     private Button buttonVendre;
+    private static final int CHOISIR_PHOTO_REQUEST_CODE = 1001;
 
+    private ImageView imageView; // Ajout de l'instance ImageView
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -36,11 +46,19 @@ public class VendreActivity extends AppCompatActivity {
         Couleur = findViewById(R.id.editCouleur);
         NbrePlaces = findViewById(R.id.editNbrePlaces);
 
-        buttonAjouterPhotos = (Button) findViewById(R.id.buttonRetour);
+        buttonAjouterPhotos = (Button) findViewById(R.id.buttonphotos);
         buttonPublier = (Button) findViewById(R.id.buttonPublier);
         buttonAcheter = (Button) findViewById(R.id.buttonAcheter);
         buttonVendre = (Button) findViewById(R.id.buttonVendre);
 
+        imageView = findViewById(R.id.imageView);
+
+        buttonAjouterPhotos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                choisirPhoto();
+            }
+        });
         buttonAcheter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,7 +105,24 @@ public class VendreActivity extends AppCompatActivity {
                 }
             }
         });
+    }
 
+    private void choisirPhoto() {
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("image/*");
+        startActivityForResult(intent, CHOISIR_PHOTO_REQUEST_CODE);
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == CHOISIR_PHOTO_REQUEST_CODE && resultCode == RESULT_OK) {
+            if (data != null) {
+                Uri imageUri = data.getData();
+                imageView.setImageURI(imageUri);
+            }
+        }
     }
 }
