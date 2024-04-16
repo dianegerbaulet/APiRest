@@ -36,18 +36,19 @@
             android:name=".AcheterActivity"
             android:exported="false" />
         <activity
+            android:name=".BMWI3"
+            android:exported="false" />
+        <activity
+            android:name=".CitroenAmi"
+            android:exported="false" />
+        <activity
             android:name=".VendreActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustNothing" />
         <activity
             android:name=".FavorisActivity"
             android:exported="false" />
-        <activity
-            android:name=".BMWI3"
-            android:exported="false" />
-        <activity
-            android:name=".CitroenAmi"
-            android:exported="false" />
+
 
 
     </application>

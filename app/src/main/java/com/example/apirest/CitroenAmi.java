@@ -13,6 +13,6 @@ public class CitroenAmi extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acheter_citroen_ami);
 
-        //Favoris = findViewById(R.id.Favoris);
+        Favoris = findViewById(R.id.Favoris);
     }
 }

@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -61,16 +62,15 @@ public class AcheterActivity extends AppCompatActivity {
         });
 
 
-        Spinner spinnerMarque = findViewById(R.id.Marque);
-        Spinner spinnerModele = findViewById(R.id.Modèle);
-        Spinner spinnerPrix = findViewById(R.id.Prix);
-        Spinner spinnerKilometrage = findViewById(R.id.Kilométrage);
-        Spinner spinnerAnnee = findViewById(R.id.Annee);
-        Spinner spinnerAutonomie = findViewById(R.id.Autonomie);
-        Spinner spinnerPuissance = findViewById(R.id.Puissance);
-        Spinner spinnerCouleur = findViewById(R.id.Couleur);
-        Spinner spinnerNbrePlaces = findViewById(R.id.Nombre_de_places);
-
+        spinnerMarque = findViewById(R.id.Marque);
+        spinnerModele = findViewById(R.id.Modèle);
+        spinnerPrix = findViewById(R.id.Prix);
+        spinnerKilometrage = findViewById(R.id.Kilométrage);
+        spinnerAnnee = findViewById(R.id.Annee);
+        spinnerAutonomie = findViewById(R.id.Autonomie);
+        spinnerPuissance = findViewById(R.id.Puissance);
+        spinnerCouleur = findViewById(R.id.Couleur);
+        spinnerNbrePlaces = findViewById(R.id.Nombre_de_places);
 
 
         searchButton.setOnClickListener(new View.OnClickListener() {
@@ -87,16 +87,19 @@ public class AcheterActivity extends AppCompatActivity {
                 String selectedValue8 = spinnerCouleur.getSelectedItem().toString();
                 String selectedValue9 = spinnerNbrePlaces.getSelectedItem().toString();
 
-                if (selectedValue1.equals("BMW") && selectedValue2.equals("I3 phase 2") && selectedValue3.equals("Entre 15 001€ et 20 000€") && selectedValue4.equals("Entre 60 001kms et 80 000kms") && selectedValue5.equals("2018") && selectedValue6.equals("Entre 201kms et 300kms")){
+
+
+                if (selectedValue1.equals("BMW") && selectedValue2.equals("I3 phase 2") && selectedValue3.equals("Entre 15 001€ et 20 000€") && selectedValue4.equals("Entre 60 001kms et 80 000kms") && selectedValue5.equals("2018") && selectedValue6.equals("Entre 201kms et 300kms")) {
                     Intent intent = new Intent(AcheterActivity.this, BMWI3.class);
                     startActivity(intent);
-                } else if (selectedValue1.equals("Citroen") && selectedValue2.equals("Ami") && selectedValue3.equals("Entre 5 001€ et 10 000€") && selectedValue4.equals("Entre 0kms et 20 000kms") && selectedValue5.equals("2021") && selectedValue6.equals("Entre 0kms et 100kms")){
-                        Intent intent = new Intent(AcheterActivity.this, CitroenAmi.class);
-                        startActivity(intent);
-
+                } else if (selectedValue1.equals("Citroen") && selectedValue2.equals("Ami") && selectedValue3.equals("Entre 5 001€ et 10 000€") && selectedValue4.equals("Entre 0kms et 20 000kms") && selectedValue5.equals("2021") && selectedValue6.equals("Entre 0kms et 100kms")) {
+                    Intent intent = new Intent(AcheterActivity.this, CitroenAmi.class);
+                    startActivity(intent);
+                } else if (selectedValue1.equals("") || selectedValue2.equals("") || selectedValue3.equals("") || selectedValue4.equals("") || selectedValue5.equals("") || selectedValue6.equals("") || selectedValue7.equals("") || selectedValue8.equals("") || selectedValue9.equals("") ){
+                    Toast.makeText(getApplicationContext(), "Toutes les informations principales ne sont pas renseignées", Toast.LENGTH_SHORT).show();
                 } else {
-                    // Si "BMW" n'est pas sélectionné dans le Spinner
-                    Toast.makeText(getApplicationContext(), "BMW n'est pas sélectionné dans le Spinner.", Toast.LENGTH_SHORT).show();
+                    // Si "Tous les paramètres ne sont pas rentrés ou que la voiture n'est pas dans la base de données"
+                    Toast.makeText(getApplicationContext(), "La voiture n'est pas dans la base de donnés", Toast.LENGTH_SHORT).show();
                 }
 
             }
