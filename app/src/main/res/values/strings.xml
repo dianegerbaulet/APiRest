@@ -6,6 +6,7 @@
     <string name="previous">Previous</string>
 
     <string-array name="marques_array">
+        <item>Marque</item>
         <item>BMW</item>
         <item>Citroen</item>
         <item>Dacia</item>
@@ -19,6 +20,7 @@
     </string-array>
 
     <string-array name="modeles_array">
+        <item>Modèle</item>
         <item>I3 phase 2</item>
         <item>Ami</item>
         <item>Spring</item>
@@ -33,6 +35,7 @@
     </string-array>
 
     <string-array name="prix_array">
+        <item>Prix</item>
         <item>Entre 0€ et 5 000€</item>
         <item>Entre 5 001€ et 10 000€</item>
         <item>Entre 10 001€ et 15 000€</item>
@@ -42,6 +45,7 @@
     </string-array>
 
     <string-array name="kilométrage_array">
+        <item>Kilométrage</item>
         <item>Entre 0kms et 20 000kms</item>
         <item>Entre 20 001kms et 40 000kms</item>
         <item>Entre 40 001kms et 60 000kms</item>
@@ -51,6 +55,7 @@
     </string-array>
 
     <string-array name="annee_array">
+        <item>Année</item>
         <item>2016</item>
         <item>2017</item>
         <item>2018</item>
@@ -62,6 +67,7 @@
     </string-array>
 
     <string-array name="autonomie_array">
+        <item>Autonomie</item>
         <item>Entre 0kms et 100kms</item>
         <item>Entre 101kms et 200kms</item>
         <item>Entre 201kms et 300kms</item>
@@ -70,18 +76,25 @@
 
 
     <string-array name="puissance_array">
-        <item>Blanc</item>
-        <item>Gris</item>
-        <item>Noir</item>
+        <item>Puissance</item>
+        <item>1 CV</item>
+        <item>2 CV</item>
+        <item>3 CV</item>
+        <item>4 CV</item>
+        <item>5 CV</item>
     </string-array>
 
     <string-array name="couleur_array">
+        <item>Couleur</item>
         <item>Blanc</item>
+        <item>Bleu</item>
         <item>Gris</item>
         <item>Noir</item>
+        <item>Orange</item>
     </string-array>
 
     <string-array name="nbre_places_array">
+        <item>Nombre de places</item>
         <item>2</item>
         <item>4</item>
         <item>5</item>

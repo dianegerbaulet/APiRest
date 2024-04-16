@@ -1,84 +1,95 @@
 package com.example.apirest;
 
-import android.os.Bundle;
-
-import com.google.android.material.snackbar.Snackbar;
+import static com.example.apirest.GlobalVariable.setUsrEmail;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
-import android.widget.ListView;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-import java.util.ArrayList;
+import java.util.Base64;
+import java.util.concurrent.ExecutionException;
 
 
 public class MainActivity extends AppCompatActivity {
-
-    private Spinner spinnerMinYear, spinnerMaxYear, spinnerPriceMin, spinnerPriceMax;
-    private Button buttonSearch;
+    private String UsrEmail = GlobalVariable.UsrEmail;
+    private EditText userEmail;
+    private EditText userPassword;
+    private Button buttonLogin;
+    private Button buttonRegister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
-        // Initialize UI elements
-        spinnerMinYear = findViewById(R.id.spinnerMinYear);
-        spinnerMaxYear = findViewById(R.id.spinnerMaxYear);
-        spinnerPriceMin = findViewById(R.id.spinnerPriceMin);
-        spinnerPriceMax = findViewById(R.id.spinnerPriceMax);
-        buttonSearch = findViewById(R.id.buttonSearch);
+        userEmail = (EditText)findViewById(R.id.user_email);
+        userPassword = (EditText)findViewById(R.id.user_password);
+        buttonLogin = (Button)findViewById(R.id.button_connexion);
+        buttonRegister = (Button)findViewById(R.id.button_register);
 
-        // Set up spinner adapters with appropriate data (year ranges, price ranges)
+        userEmail.setText("");
+        userPassword.setText("");
 
-        // Set up click listener for the "Favoris" button
-        Button buttonFavoris = findViewById(R.id.buttonFavoris);
-        buttonFavoris.setOnClickListener(new View.OnClickListener() {
+        buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, FavorisActivity.class);
-                startActivity(intent);
+                try {
+                    JSONObject jAuth = new JSONObject();
+                    jAuth.put("email", userEmail.getText().toString());
+                    jAuth.put("password", userPassword.getText().toString());
+                    jAuth.put("app", "MNA");
+
+                    Log.v("LoginActivity", userEmail.getText().toString()+" "+userPassword.getText().toString());
+                    setUsrEmail(userEmail.getText().toString());
+                    ConnectionRest connectionRest = new ConnectionRest();
+                    connectionRest.setObj(jAuth);
+                    connectionRest.setAction("auth");
+                    connectionRest.execute("POST");
+                    String token = connectionRest.get();
+                    Param.getInstance().setToken(token);
+                    if(token.charAt(0)=='{') {
+                        Log.v("LoginActivity", token);
+                    }else{
+                        Param.getInstance().setToken(token);
+                        String []tabToken = token.split("\\.");
+                        String jsonToken = "";
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                            jsonToken = new String(Base64.getDecoder().decode(tabToken[1].getBytes()));
+                        }
+
+                        Log.v("TOKEN",jsonToken+" "+tabToken[1]);
+                        JSONObject payload = new JSONObject(jsonToken);
+                        Param.getInstance().setNameUser(payload.getString("name"));
+                        Param.getInstance().setIdUser(payload.getInt("usr"));
+                        Intent intent = new Intent(MainActivity.this, WelcomePage.class);
+                        startActivity(intent);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException  e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
-        // Set up click listener for the "Search" button
-        buttonSearch.setOnClickListener(new View.OnClickListener() {
+        buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Get selected filter values from spinners
-                int minYear = getSelectedYear(spinnerMinYear);
-                int maxYear = getSelectedYear(spinnerMaxYear);
-                int minPrice = getSelectedPrice(spinnerPriceMin);
-                int maxPrice = getSelectedPrice(spinnerPriceMax);
-
-                // Create a new Intent to launch SearchResultsActivity
-                Intent intent = new Intent(MainActivity.this, SearchResultsActivity.class);
-                intent.putExtra("minYear", minYear);
-                intent.putExtra("maxYear", maxYear);
-                intent.putExtra("minPrice", minPrice);
-                intent.putExtra("maxPrice", maxPrice);
+                Intent intent = new Intent(MainActivity.this, RegistrationActivity.class);
                 startActivity(intent);
             }
         });
     }
-
-    // Helper methods to get selected values from spinners
-    private int getSelectedYear(Spinner spinner) {
-        // Implement logic to get the selected year from the spinner
-    }
-
-    private int getSelectedPrice(Spinner spinner) {
-        // Implement logic to get the selected price from the spinner
-    }
-
-    Spinner spinner3 = findViewById(R.id.my_spinner);
-
-    String[] data = getResources().getStringArray(R.array.spinner_data);
-
-    ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-            android.R.layout.simple_spinner_item, data);
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            spinner.setAdapter(adapter);
-
 }
