@@ -189,6 +189,14 @@
                 android:hint="Kilométrage"
                 android:inputType="text" />
 
+            <EditText
+                android:id="@+id/editAutonomie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Autonomie"
+                android:inputType="text" />
+
         </LinearLayout>
 
 
